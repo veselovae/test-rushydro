@@ -2,7 +2,7 @@
 import InputTextItem from "../../entities/InputTextItem.vue";
 import InputTelItem from "../../entities/InputTelItem.vue";
 
-import { ref, onMounted, computed } from "vue";
+import { onMounted, computed } from "vue";
 
 import { formTextFields, formTelFields } from "./contants";
 import { getRequst } from "./request";
@@ -45,6 +45,7 @@ const signature = computed(() => {
     >
       {{ item.label }}
     </InputTextItem> -->
+
     <InputTextItem
       v-for="item of formTextFields.slice(0, formTextFields.length - 1)"
       :key="item.label"

@@ -23,8 +23,6 @@ export const useForm = defineStore("form", {
       this.counter++;
     },
     updateSignatureData(newValue) {
-      // console.log(this.signatureData, newValue);
-      // this.signatureData = newValue;
       Object.assign(this.signatureData, newValue);
     },
   },

@@ -16,5 +16,7 @@ import TheSignature from "../widgets/TheSignature.vue";
   display: flex;
   width: 100%;
   justify-content: space-between;
+  gap: 15px;
+  align-items: self-start;
 }
 </style>
