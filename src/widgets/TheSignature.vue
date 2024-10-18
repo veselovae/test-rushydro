@@ -41,7 +41,7 @@ const store = useForm();
 
 <style scoped>
 .signature-wrapper {
-  width: 600px;
+  width: 500px;
   background-color: #fff;
   padding: 30px;
   border-radius: 20px;

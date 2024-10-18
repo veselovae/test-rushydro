@@ -1,6 +1,7 @@
 <script setup>
-import InputTextItem from "../../entities/InputTextItem.vue";
-import InputTelItem from "../../entities/InputTelItem.vue";
+import InputTextItem from "@/entities/InputTextItem.vue";
+import InputTelItem from "@/entities/InputTelItem.vue";
+import ButtonCopy from "@/shared/ui/ButtonCopy.vue";
 
 import { onMounted, computed } from "vue";
 
@@ -74,12 +75,21 @@ const signature = computed(() => {
       {{ item.label }}
     </InputTextItem>
 
-    {{ store.getSignature }}
+    <!-- {{ store.getSignature }} -->
+    <div class="buttons">
+      <ButtonCopy>Копировать текст</ButtonCopy>
+      <ButtonCopy>Копировать HTML</ButtonCopy>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .form-wrapper {
   width: 100%;
+}
+
+.buttons {
+  display: flex;
+  gap: 30px;
 }
 </style>
