@@ -1,5 +1,5 @@
 <script setup>
-import TheForm from "../widgets/TheForm.vue";
+import TheForm from "../widgets/TheForm/TheForm.vue";
 import TheSignature from "../widgets/TheSignature.vue";
 </script>
 
@@ -14,5 +14,7 @@ import TheSignature from "../widgets/TheSignature.vue";
 .page-wrapper {
   padding: 15px;
   display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 </style>
