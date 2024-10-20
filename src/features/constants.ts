@@ -1,4 +1,4 @@
-import { fields as typeFields } from "./model/interfaces";
+import { fields as typeFields } from "./model/signatureFields";
 
 export const fields: typeFields[] = [
   "name",

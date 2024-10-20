@@ -1,24 +1,28 @@
-import { signatureData } from "./model/interfaces";
+import { signatureData } from "./model/signatureData";
 
-const getImgBase64 = async (str: string, callback: Function): Promise<void> => {
-  const pattern = /\/src(.*).png/g;
-  const url = str.match(pattern)[0];
+const getHTMLBase64 = async (
+  str: string,
+  callback: Function
+): Promise<void> => {
+  const imageSrcPattern = /\/src(.*).png/g;
+  const imageUrl = str.match(imageSrcPattern)[0];
+  let htmlBase64: string;
 
-  await fetch(url)
+  await fetch(imageUrl)
     .then((res) => res.blob())
     .then((blob) => {
       const reader = new FileReader();
 
       reader.onloadend = () => {
-        str = str.replace(url, reader.result as string);
+        htmlBase64 = str.replace(imageUrl, reader.result as string);
 
-        callback(str);
+        callback(htmlBase64);
       };
       reader.readAsDataURL(blob);
     });
 };
 
-const transformHtml = (html: string) => {
+const formatHTML = (html: string) => {
   const pattern = /data-v-[\da-z]{0,9}=""/gi;
 
   const replaceParams: [string | RegExp, string][] = [
@@ -27,25 +31,25 @@ const transformHtml = (html: string) => {
     ["<!--v-if-->", ""],
   ];
 
-  let newHTML = html;
+  let formatedHTML = html;
   replaceParams.forEach((params) => {
-    newHTML = newHTML.replaceAll(...params);
+    formatedHTML = formatedHTML.replaceAll(...params);
   });
 
-  return newHTML;
+  return formatedHTML;
 };
 
-export const getHTMLCopy = async (ref: string): Promise<void> => {
-  const html = transformHtml(ref);
+export const copyHTML = async (ref: string): Promise<void> => {
+  const html = formatHTML(ref);
 
-  await getImgBase64(html, (data: string) => {
+  await getHTMLBase64(html, (data: string) => {
     navigator.clipboard.writeText(data);
   });
 };
 
 import { fields } from "./constants";
 
-export const getTextCopy = (storeData: signatureData) => {
+export const copyText = (storeData: signatureData) => {
   let text = `C уважением`;
   fields.forEach((el) => {
     if (el === "") {

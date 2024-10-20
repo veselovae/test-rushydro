@@ -1,6 +1,6 @@
 <template>
   <button>
-    <img src="../assets/copy-icon.svg" alt="" class="icon" />
+    <img src="../assets/copy-icon.svg" alt="copy-icon" class="icon" />
     <slot />
   </button>
 </template>

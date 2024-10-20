@@ -1,22 +1,24 @@
 <script setup lang="ts">
-import InputTextItem from "@/entities/InputTextItem.vue";
-import InputTelItem from "@/entities/InputTelItem.vue";
-
 import { onMounted, computed } from "vue";
 
-import { formTextFields, formTelFields } from "./lib/constants";
-import { getRequst } from "./lib/request";
+import TextInput from "@/entities/ui/TextInput.vue";
+import TelInput from "@/entities/ui/TelInput.vue";
+
+import { formTextFields, formTelFields } from "../lib/constants";
+import { getSignature } from "../api/getSignature";
 
 import { useForm } from "@/app/store/store.js";
+
 const store = useForm();
 
-onMounted(() => {
-  getRequst(store.updateSignatureData);
+onMounted(async () => {
+  const signature = await getSignature();
+  store.updateSignatureData(signature);
 });
 
 const signature = computed(() => {
-  return new Proxy(store.getSignature, {
-    set: (target, prop, value) => {
+  return new Proxy(store.signature, {
+    set: (_target, prop, value) => {
       store.updateSignatureData({ [prop]: value });
       return true;
     },
@@ -26,16 +28,16 @@ const signature = computed(() => {
 
 <template>
   <div class="form-wrapper">
-    <InputTextItem
+    <TextInput
       v-for="item of formTextFields"
       :key="item.label"
       :type="item.type"
       v-model="signature[item.model]"
     >
       {{ item.label }}
-    </InputTextItem>
+    </TextInput>
 
-    <InputTelItem
+    <TelInput
       v-for="item of formTelFields"
       :key="item.label"
       :type="item.type"
@@ -43,7 +45,7 @@ const signature = computed(() => {
       :maskInp="item.mask"
     >
       {{ item.label }}
-    </InputTelItem>
+    </TelInput>
   </div>
 </template>
 

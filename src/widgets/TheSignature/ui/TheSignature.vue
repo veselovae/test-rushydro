@@ -1,11 +1,11 @@
 <script setup>
-import { useForm } from "@/app/store/store.js";
 import { storeToRefs } from "pinia";
+import { useForm } from "@/app/store/store.js";
+
+import { signatureStyles } from "../lib/constants";
 
 const store = useForm();
-const { getSignature } = storeToRefs(store);
-
-import { signatureStyles } from "./lib/constants";
+const { signature } = storeToRefs(store);
 </script>
 
 <template>
@@ -13,34 +13,34 @@ import { signatureStyles } from "./lib/constants";
     <div class="signature-top" :style="signatureStyles.signatureTop">
       <i>С уважением</i>
       <i
-        v-if="getSignature.name"
+        v-if="signature.name"
         class="signature-name"
         :style="signatureStyles.signatureName"
-        >{{ getSignature.name }}</i
+        >{{ signature.name }}</i
       >
-      <i v-if="getSignature.position">{{ getSignature.position }}</i>
-      <i v-if="getSignature.department">{{ getSignature.department }}</i>
+      <i v-if="signature.position">{{ signature.position }}</i>
+      <i v-if="signature.department">{{ signature.department }}</i>
     </div>
 
     <div
       class="signature-phone"
-      v-if="getSignature.office_phone_number"
+      v-if="signature.office_phone_number"
       :style="signatureStyles.signaturePhone"
     >
       <i>раб. тел.:</i>
-      <i>{{ getSignature.office_phone_number }}</i>
+      <i>{{ signature.office_phone_number }}</i>
     </div>
     <div
       class="signature-phone"
-      v-if="getSignature.personal_phone_number"
+      v-if="signature.personal_phone_number"
       :style="signatureStyles.signaturePhone"
     >
       <i>моб. тел.:</i>
-      <i>{{ getSignature.personal_phone_number }}</i>
+      <i>{{ signature.personal_phone_number }}</i>
     </div>
 
-    <i v-if="getSignature.address" :style="signatureStyles.address">{{
-      getSignature.address
+    <i v-if="signature.address" :style="signatureStyles.address">{{
+      signature.address
     }}</i>
 
     <a

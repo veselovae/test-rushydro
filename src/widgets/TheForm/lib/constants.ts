@@ -1,4 +1,4 @@
-import { ITextField, ITelField } from "../model/interfaces";
+import { ITextField, ITelField } from "../model/inputFields";
 
 export const formTextFields: ITextField[] = [
   { label: "Фамилия Имя", type: "text", model: "name" },

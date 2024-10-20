@@ -1,10 +1,10 @@
-import { fields } from "@/features/model/interfaces.ts";
+import { fields } from "@/features/model/signatureFields";
 
-type typeField = "text" | "tel";
+type typeInputField = "text" | "tel";
 
 export interface ITextField {
   label: string;
-  type: typeField;
+  type: typeInputField;
   model: fields;
 }
 

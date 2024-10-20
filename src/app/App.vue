@@ -1,10 +1,10 @@
 <script setup>
-import ThePage from "../pages/ThePage.vue";
+import TheSignaturePage from "@/pages/ui/TheSignaturePage.vue";
 </script>
 
 <template>
   <div class="app-wrapper">
-    <ThePage />
+    <TheSignaturePage />
   </div>
 </template>
 

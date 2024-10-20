@@ -12,7 +12,7 @@ export const useForm = defineStore("form", {
     },
   }),
   getters: {
-    getSignature: (state) => state.signatureData,
+    signature: (state) => state.signatureData,
   },
   actions: {
     updateSignatureData(newValue) {

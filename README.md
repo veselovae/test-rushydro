@@ -16,11 +16,19 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 npm install
 ```
 
+## Запуск сервиса:
+
+```sh
+node app.js
+```
+
 ### Compile and Hot-Reload for Development
 
 ```sh
 npm run dev
 ```
+
+Сервис будет доступен по адресу http://localhost:5173/.
 
 ### Compile and Minify for Production
 
