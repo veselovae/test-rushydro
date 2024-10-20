@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import InputTextItem from "@/entities/InputTextItem.vue";
 import InputTelItem from "@/entities/InputTelItem.vue";
 
@@ -7,12 +7,12 @@ import { onMounted, computed } from "vue";
 import { formTextFields, formTelFields } from "./lib/constants";
 import { getRequst } from "./lib/request";
 
+import { useForm } from "@/app/store/store.js";
+const store = useForm();
+
 onMounted(() => {
   getRequst(store.updateSignatureData);
 });
-
-import { useForm } from "../../app/store/store.js";
-const store = useForm();
 
 const signature = computed(() => {
   return new Proxy(store.getSignature, {

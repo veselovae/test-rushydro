@@ -1,4 +1,6 @@
-export const fields = [
+import { fields as typeFields } from "./model/interfaces";
+
+export const fields: typeFields[] = [
   "name",
   "position",
   "department",

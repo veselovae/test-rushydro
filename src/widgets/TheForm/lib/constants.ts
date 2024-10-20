@@ -1,11 +1,13 @@
-export const formTextFields = [
+import { ITextField, ITelField } from "../model/interfaces";
+
+export const formTextFields: ITextField[] = [
   { label: "Фамилия Имя", type: "text", model: "name" },
   { label: "Должность", type: "text", model: "position" },
   { label: "Подразделение", type: "text", model: "department" },
   { label: "Местоположение", type: "text", model: "address" },
 ];
 
-export const formTelFields = [
+export const formTelFields: ITelField[] = [
   {
     label: "Рабочий телефон",
     type: "tel",

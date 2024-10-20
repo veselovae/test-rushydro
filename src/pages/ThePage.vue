@@ -1,6 +1,6 @@
-<script setup>
-import TheForm from "../widgets/TheForm/TheForm.vue";
-import TheSignature from "../widgets/TheSignature/TheSignature.vue";
+<script setup lang="ts">
+import TheForm from "@/widgets/TheForm/TheForm.vue";
+import TheSignature from "@/widgets/TheSignature/TheSignature.vue";
 import ButtonCopy from "@/shared/ui/ButtonCopy.vue";
 
 import { ref } from "vue";

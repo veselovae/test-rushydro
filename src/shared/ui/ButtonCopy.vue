@@ -1,5 +1,3 @@
-<script setup></script>
-
 <template>
   <button>
     <img src="../assets/copy-icon.svg" alt="" class="icon" />
